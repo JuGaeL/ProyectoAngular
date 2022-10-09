@@ -6,3 +6,4 @@ app.controller('comics', function ($scope, $http) {
             $scope.items = response.data.data.results;
         })
 })
+
