@@ -1,28 +1,56 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="myApp">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-            crossorigin="anonymous"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-    <script src="./js/main.js"></script>
-    <link rel="stylesheet" href="css/styles.css">
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+  </script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+  <script src="./js/main.js"></script>
+  <link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body>
-    <div ng-controller="comics" class="container">
-        <div class="card-group sm-container">
-            <div class="card" ng-repeat="item in items">
-                <img src='{{item.thumbnail.path}}.{{item.thumbnail.extension}}' class="card-img-top img-main" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title text-center">{{item.title}}</h5>
-                    <p class="card-text">{{item.description}}</p>
-                </div>
+
+  <div ng-controller="comics">
+    <div class="container">
+      <!--INICIO DE NAVBAR-->
+  
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <!--INPUT DE BÚSQUEDA-->
+            <div class="input-group">
+              <input type="text" ng-model="busqueda" class="input" placeholder=" " />
+              <label class="placeholder">Buscar</label>
             </div>
+          </div>
         </div>
+      </nav>
+      <!--FINAL DE NAVBAR-->
     </div>
+  
+    <div class="container">
+      <div class="card-group sm-container">
+        <div class="card" ng-repeat="item in items">
+          <img src='{{item.thumbnail.path}}.{{item.thumbnail.extension}}' ng-style="{'opacity' : (!busqueda || item.title.toLowerCase().includes(busqueda.toLowerCase())) ? 1 : 0.2}" class="card-img-top img-main" alt="...">
+          <div class="card-body">
+            <h5 class="card-title text-center">{{item.title}}</h5>
+            <p class="card-text">{{item.description}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </div>
 </body>
+
 </html>
