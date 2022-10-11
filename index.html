@@ -41,7 +41,7 @@
     <div class="container">
       <div class="card-group sm-container">
         <div class="card" ng-repeat="item in items">
-          <img src='{{item.thumbnail.path}}.{{item.thumbnail.extension}}' ng-style="{'opacity' : (!busqueda || item.title.includes(busqueda)) ? 1 : 0.2}" class="card-img-top img-main" alt="...">
+          <img src='{{item.thumbnail.path}}.{{item.thumbnail.extension}}' ng-style="{'opacity' : (!busqueda || item.title.toLowerCase().includes(busqueda.toLowerCase())) ? 1 : 0.2}" class="card-img-top img-main" alt="...">
           <div class="card-body">
             <h5 class="card-title text-center">{{item.title}}</h5>
             <p class="card-text">{{item.description}}</p>
