@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="myApp">
+
 <head>
     <meta charset="UTF-8">
     <title>MARVEL COMIC</title>
@@ -13,26 +14,51 @@
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 </head>
-<body>
-    <div ng-controller="comics" class="container">
-        <div class="card-group sm-container">
-            <div class="card" ng-repeat="item in items">
-                <img src='{{item.thumbnail.path}}.{{item.thumbnail.extension}}' class="card-img-top img-main" alt="...">
-                <div class="card-body">                   
-                    <i onclick="fun(this)" class="bi bi-heart-fill"></i>
-                    <h5 class="card-title text-center">{{item.title}}</h5>                 
-                    <p class="card-text">{{item.description}}</p>
-                    
-                </div>
-            </div>
-        </div>
-    </div>
 
+<body>
+  <div ng-controller="comics">
+    <div class="container">
+      <!--INICIO DE NAVBAR-->
+  
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <!--INPUT DE BÚSQUEDA-->
+            <div class="input-group">
+              <input type="text" ng-model="busqueda" class="input" placeholder=" " />
+              <label class="placeholder">Buscar</label>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <!--FINAL DE NAVBAR-->
+    </div>
+ 
+    <div class="container">
+      <div class="card-group sm-container">
+        <div class="card" ng-repeat="item in items">
+          <img src='{{item.thumbnail.path}}.{{item.thumbnail.extension}}' ng-style="{'opacity' : (!busqueda || item.title.toLowerCase().includes(busqueda.toLowerCase())) ? 1 : 0.2}" class="card-img-top img-main" alt="...">
+          <div class="card-body">
+            <i onclick="fun(this)" class="bi bi-heart-fill"></i>
+            <h5 class="card-title text-center">{{item.title}}</h5>
+            <p class="card-text">{{item.description}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </div>
     <script>
          function fun(x) {
                 x.classList.toggle("bi-heart-fill-clic")
                 
             }
     </script>
+
 </body>
+
 </html>
