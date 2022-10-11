@@ -2,20 +2,20 @@
 <html lang="en" ng-app="myApp">
 
 <head>
-  <meta charset="UTF-8">
-  <title>Title</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-  </script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-  <script src="./js/main.js"></script>
-  <link rel="stylesheet" href="css/styles.css">
+    <meta charset="UTF-8">
+    <title>MARVEL COMIC</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="./js/main.js"></script>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 </head>
 
 <body>
-
   <div ng-controller="comics">
     <div class="container">
       <!--INICIO DE NAVBAR-->
@@ -37,12 +37,13 @@
       </nav>
       <!--FINAL DE NAVBAR-->
     </div>
-  
+ 
     <div class="container">
       <div class="card-group sm-container">
         <div class="card" ng-repeat="item in items">
           <img src='{{item.thumbnail.path}}.{{item.thumbnail.extension}}' ng-style="{'opacity' : (!busqueda || item.title.toLowerCase().includes(busqueda.toLowerCase())) ? 1 : 0.2}" class="card-img-top img-main" alt="...">
           <div class="card-body">
+            <i onclick="fun(this)" class="bi bi-heart-fill"></i>
             <h5 class="card-title text-center">{{item.title}}</h5>
             <p class="card-text">{{item.description}}</p>
           </div>
@@ -51,6 +52,13 @@
     </div>
   
   </div>
+    <script>
+         function fun(x) {
+                x.classList.toggle("bi-heart-fill-clic")
+                
+            }
+    </script>
+
 </body>
 
 </html>

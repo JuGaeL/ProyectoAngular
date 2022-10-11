@@ -7,6 +7,7 @@
     border-left: none;
     box-shadow: 11px 11px 19px -6px rgba(0,0,0,0.57);
     border-bottom-right-radius: 5px !important;
+    transition: all 1s;
 }
 
 .sm-container {
@@ -19,6 +20,31 @@
     transition: 0.5s ease;
 }
 
+.bi{
+    font-size: 30px;
+    cursor: pointer;
+    user-select: none;
+}
+
+
+
+.bi-heart-fill-clic{
+    color: red;
+}
+
+.title{
+    display: flex;
+    text-align: center;
+    align-content: center;
+}
+
+h5{
+    text-align: center;
+}
+
+.title>h5{
+    text-align: center;
+}
 
 /* ***************** Placeholder flotante ******************* */
 
